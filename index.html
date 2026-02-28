@@ -369,18 +369,7 @@
   const selects = ['pos1','pos2','pos3','pos4'];
   let selectedType = 'Classic';
 
-  // Populate dropdowns
-  selects.forEach((id, idx) => {
-    const sel = document.getElementById(id);
-    COLOURS.forEach((c, ci) => {
-      const opt = document.createElement('option');
-      opt.value = c.name;
-      opt.textContent = c.name;
-      if (ci === idx) opt.selected = true;
-      sel.appendChild(opt);
-    });
-    styleSelect(sel);
-  });
+ selects.forEach(id => styleSelect(document.getElementById(id)));
 
   function styleSelect(sel) {
     const colour = COLOURS.find(c => c.name === sel.value);
@@ -467,7 +456,7 @@
 
     // Text
     ctx.fillStyle = '#505050';
-    ctx.font = 'bold 24px Calibri, Arial, sans-serif';
+    ctx.font = 'bold 50px Calibri, Arial, sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText('My Insights colours are:', totalW / 2, textH / 2);
