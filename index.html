@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- saved from url=(0066)file:///C:/Users/scott/Downloads/InsightsSignatureGenerator_4.html -->
+<!-- saved from url=(0045)file:///C:/Users/scott/Downloads/index_1.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insights Signature Generator</title>
-<link href="./Insights Signature Generator_files/css2" rel="stylesheet">
+<link href="file:///C:/Users/scott/Downloads/Insights%20Signature%20Generator_files/css2" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -312,19 +312,19 @@
     <div class="colour-grid">
       <div class="colour-slot">
         <label>Position 1</label>
-        <select id="pos1" onchange="updatePreview()" style="border-left-color: rgb(183, 50, 48); border-left-width: 4px;"><option value="Fiery Red">Fiery Red</option><option value="Cool Blue">Cool Blue</option><option value="Sunshine Yellow">Sunshine Yellow</option><option value="Earth Green">Earth Green</option></select>
+        <select id="pos1" onchange="updatePreview()" style="border-left-color: rgb(183, 50, 48); border-left-width: 4px;"><option value="Fiery Red">Fiery Red</option><option value="Cool Blue">Cool Blue</option><option value="Sunshine Yellow">Sunshine Yellow</option><option value="Earth Green">Earth Green</option><option value="Fiery Red">Fiery Red</option><option value="Cool Blue">Cool Blue</option><option value="Sunshine Yellow">Sunshine Yellow</option><option value="Earth Green">Earth Green</option></select>
       </div>
       <div class="colour-slot">
         <label>Position 2</label>
-        <select id="pos2" onchange="updatePreview()" style="border-left-color: rgb(0, 113, 187); border-left-width: 4px;"><option value="Fiery Red">Fiery Red</option><option value="Cool Blue">Cool Blue</option><option value="Sunshine Yellow">Sunshine Yellow</option><option value="Earth Green">Earth Green</option></select>
+        <select id="pos2" onchange="updatePreview()" style="border-left-color: rgb(0, 113, 187); border-left-width: 4px;"><option value="Fiery Red">Fiery Red</option><option value="Cool Blue">Cool Blue</option><option value="Sunshine Yellow">Sunshine Yellow</option><option value="Earth Green">Earth Green</option><option value="Fiery Red">Fiery Red</option><option value="Cool Blue">Cool Blue</option><option value="Sunshine Yellow">Sunshine Yellow</option><option value="Earth Green">Earth Green</option></select>
       </div>
       <div class="colour-slot">
         <label>Position 3</label>
-        <select id="pos3" onchange="updatePreview()" style="border-left-color: rgb(253, 201, 79); border-left-width: 4px;"><option value="Fiery Red">Fiery Red</option><option value="Cool Blue">Cool Blue</option><option value="Sunshine Yellow">Sunshine Yellow</option><option value="Earth Green">Earth Green</option></select>
+        <select id="pos3" onchange="updatePreview()" style="border-left-color: rgb(253, 201, 79); border-left-width: 4px;"><option value="Fiery Red">Fiery Red</option><option value="Cool Blue">Cool Blue</option><option value="Sunshine Yellow">Sunshine Yellow</option><option value="Earth Green">Earth Green</option><option value="Fiery Red">Fiery Red</option><option value="Cool Blue">Cool Blue</option><option value="Sunshine Yellow">Sunshine Yellow</option><option value="Earth Green">Earth Green</option></select>
       </div>
       <div class="colour-slot">
         <label>Position 4</label>
-        <select id="pos4" onchange="updatePreview()" style="border-left-color: rgb(138, 166, 15); border-left-width: 4px;"><option value="Fiery Red">Fiery Red</option><option value="Cool Blue">Cool Blue</option><option value="Sunshine Yellow">Sunshine Yellow</option><option value="Earth Green">Earth Green</option></select>
+        <select id="pos4" onchange="updatePreview()" style="border-left-color: rgb(138, 166, 15); border-left-width: 4px;"><option value="Fiery Red">Fiery Red</option><option value="Cool Blue">Cool Blue</option><option value="Sunshine Yellow">Sunshine Yellow</option><option value="Earth Green">Earth Green</option><option value="Fiery Red">Fiery Red</option><option value="Cool Blue">Cool Blue</option><option value="Sunshine Yellow">Sunshine Yellow</option><option value="Earth Green">Earth Green</option></select>
       </div>
     </div>
 
@@ -346,7 +346,7 @@
     </div>
   </div>
 
-  <div class="error-msg" id="errorMsg"></div>
+  <div class="error-msg" id="errorMsg" style="display: none;"></div>
 
   <button class="btn-download" onclick="downloadPNG()">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -356,7 +356,7 @@
   </button>
 </div>
 
-<canvas id="canvas"></canvas>
+<canvas id="canvas" width="174" height="62"></canvas>
 
 <script>
   const COLOURS = [
@@ -448,12 +448,11 @@
     const vals = getSelections();
     const slashAfter = getSlashAfter();
 
-    // Canvas dimensions (scaled up for crisp export)
-    const scale = 3;
-    const blockW = 60 * scale;
-    const blockH = 60 * scale;
-    const slashW = 24 * scale;
-    const textH  = 48 * scale;
+    // Canvas dimensions - email signature sized, square blocks
+    const blockW = 40;
+    const blockH = 40;
+    const slashW = 14;
+    const textH  = 22;
     const totalW = (4 * blockW) + slashW;
     const totalH = textH + blockH;
 
@@ -468,7 +467,7 @@
 
     // Text
     ctx.fillStyle = '#505050';
-    ctx.font = `bold ${14 * scale}px Calibri, Arial, sans-serif`;
+    ctx.font = 'bold 13px Calibri, Arial, sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText('My Insights colours are:', totalW / 2, textH / 2);
@@ -490,7 +489,7 @@
         ctx.moveTo(x + slashW * 0.75, textH);
         ctx.lineTo(x + slashW * 0.25, textH + blockH);
         ctx.strokeStyle = '#505050';
-        ctx.lineWidth = 2.5 * scale;
+        ctx.lineWidth = 3;
         ctx.lineCap = 'round';
         ctx.stroke();
         x += slashW;
