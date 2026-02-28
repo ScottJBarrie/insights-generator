@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0045)file:///C:/Users/scott/Downloads/index_1.html -->
+<!-- saved from url=(0045)file:///C:/Users/scott/Downloads/index_3.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -312,19 +312,19 @@
     <div class="colour-grid">
       <div class="colour-slot">
         <label>Position 1</label>
-        <select id="pos1" onchange="updatePreview()" style="border-left-color: rgb(183, 50, 48); border-left-width: 4px;"><option value="Fiery Red">Fiery Red</option><option value="Cool Blue">Cool Blue</option><option value="Sunshine Yellow">Sunshine Yellow</option><option value="Earth Green">Earth Green</option><option value="Fiery Red">Fiery Red</option><option value="Cool Blue">Cool Blue</option><option value="Sunshine Yellow">Sunshine Yellow</option><option value="Earth Green">Earth Green</option></select>
+        <select id="pos1" onchange="updatePreview()" style="border-left-color: rgb(183, 50, 48); border-left-width: 4px;"><option value="Fiery Red">Fiery Red</option><option value="Cool Blue">Cool Blue</option><option value="Sunshine Yellow">Sunshine Yellow</option><option value="Earth Green">Earth Green</option></select>
       </div>
       <div class="colour-slot">
         <label>Position 2</label>
-        <select id="pos2" onchange="updatePreview()" style="border-left-color: rgb(0, 113, 187); border-left-width: 4px;"><option value="Fiery Red">Fiery Red</option><option value="Cool Blue">Cool Blue</option><option value="Sunshine Yellow">Sunshine Yellow</option><option value="Earth Green">Earth Green</option><option value="Fiery Red">Fiery Red</option><option value="Cool Blue">Cool Blue</option><option value="Sunshine Yellow">Sunshine Yellow</option><option value="Earth Green">Earth Green</option></select>
+        <select id="pos2" onchange="updatePreview()" style="border-left-color: rgb(0, 113, 187); border-left-width: 4px;"><option value="Fiery Red">Fiery Red</option><option value="Cool Blue" selected="">Cool Blue</option><option value="Sunshine Yellow">Sunshine Yellow</option><option value="Earth Green">Earth Green</option></select>
       </div>
       <div class="colour-slot">
         <label>Position 3</label>
-        <select id="pos3" onchange="updatePreview()" style="border-left-color: rgb(253, 201, 79); border-left-width: 4px;"><option value="Fiery Red">Fiery Red</option><option value="Cool Blue">Cool Blue</option><option value="Sunshine Yellow">Sunshine Yellow</option><option value="Earth Green">Earth Green</option><option value="Fiery Red">Fiery Red</option><option value="Cool Blue">Cool Blue</option><option value="Sunshine Yellow">Sunshine Yellow</option><option value="Earth Green">Earth Green</option></select>
+        <select id="pos3" onchange="updatePreview()" style="border-left-color: rgb(253, 201, 79); border-left-width: 4px;"><option value="Fiery Red">Fiery Red</option><option value="Cool Blue">Cool Blue</option><option value="Sunshine Yellow" selected="">Sunshine Yellow</option><option value="Earth Green">Earth Green</option></select>
       </div>
       <div class="colour-slot">
         <label>Position 4</label>
-        <select id="pos4" onchange="updatePreview()" style="border-left-color: rgb(138, 166, 15); border-left-width: 4px;"><option value="Fiery Red">Fiery Red</option><option value="Cool Blue">Cool Blue</option><option value="Sunshine Yellow">Sunshine Yellow</option><option value="Earth Green">Earth Green</option><option value="Fiery Red">Fiery Red</option><option value="Cool Blue">Cool Blue</option><option value="Sunshine Yellow">Sunshine Yellow</option><option value="Earth Green">Earth Green</option></select>
+        <select id="pos4" onchange="updatePreview()" style="border-left-color: rgb(138, 166, 15); border-left-width: 4px;"><option value="Fiery Red">Fiery Red</option><option value="Cool Blue">Cool Blue</option><option value="Sunshine Yellow">Sunshine Yellow</option><option value="Earth Green" selected="">Earth Green</option></select>
       </div>
     </div>
 
@@ -369,7 +369,8 @@
   const selects = ['pos1','pos2','pos3','pos4'];
   let selectedType = 'Classic';
 
- selects.forEach(id => styleSelect(document.getElementById(id)));
+  // Style the selects with colour borders on load
+  selects.forEach(id => styleSelect(document.getElementById(id)));
 
   function styleSelect(sel) {
     const colour = COLOURS.find(c => c.name === sel.value);
@@ -456,7 +457,7 @@
 
     // Text
     ctx.fillStyle = '#505050';
-    ctx.font = 'bold 50px Calibri, Arial, sans-serif';
+    ctx.font = 'bold 60px Calibri, Arial, sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText('My Insights colours are:', totalW / 2, textH / 2);
